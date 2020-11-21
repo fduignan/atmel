@@ -76,33 +76,7 @@ const void * Vectors[] __attribute__((section(".vectors"))) ={
     Default_Handler, 	/* 43: TRNG */
     Default_Handler 	/* 44: TRAM */    
 };
-/*void initClock()
-{
-// This is potentially a dangerous function as it could
-// result in a system with an invalid clock signal - result: a stuck system
-        // Set the PLL up
-        // First ensure PLL is disabled
-        RCC->CR &= ~(1<<24);
-        while( (RCC->CR & (1 <<25))); // wait for PLL ready to be cleared
-        
-  // Warning here: if system clock is greater than 24MHz then wait-state(s) need to be
-        // inserted into Flash memory interface
-        Flash->ACR |= (1 << 0);
-        Flash->ACR &=~((1 << 2) | (1<<1));
-        // Turn on FLASH prefetch buffer
-        Flash->ACR |= (1 << 4);
-        // set PLL multiplier to 12 (yielding 48MHz)
-        RCC->CFGR &= ~((1<<21) | (1<<20) | (1<<19) | (1<<18));
-        RCC->CFGR |= ((1<<21) | (1<<19) ); 
 
-        // Need to limit ADC clock to below 14MHz so will change ADC prescaler to 4
-        RCC->CFGR |= (1<<14);
-
-        // and turn the PLL back on again
-        RCC->CR |= (1<<24);        
-        // set PLL as system clock source 
-        RCC->CFGR |= (1<<1);
-}*/
 void init()
 {
 // do global/static data initialization
